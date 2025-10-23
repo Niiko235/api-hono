@@ -1,7 +1,7 @@
 'use server'
 import { RowDataPacket } from 'mysql2'
+import { createMySqlClient } from '../client/create-mysql-client.js'
 
-import { createMySqlClient } from '../client/create-mysql-client'
 
 type credentialsProps = {
   correo: string
@@ -18,9 +18,6 @@ type User = {
   onboarding_terminado: boolean
 }
 
-// agregar onboarding
-
-const JWT_SECRET = process.env.JWT_SECRET
 
 // validar si el correo existe
 // hashear la contraseña

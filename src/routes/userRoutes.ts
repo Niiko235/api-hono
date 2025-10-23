@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { singIn } from "../mysql/sql/singIn";
+import { singIn } from "../mysql/sql/singIn.js";
 
 const userRoutes = new Hono();
 
@@ -16,6 +16,5 @@ userRoutes.get('/estudiante/login/:correo/:contrasenia', async (c) => {
 
     return c.json(response)
 })
-
 
 export default userRoutes;
