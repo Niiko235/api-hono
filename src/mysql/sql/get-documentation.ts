@@ -28,7 +28,7 @@ type RowLinks = {
   pagina: string
 }
 
-export async function getDocumentationWithAll(idMicrocapsula: number) {
+export async function getDocumentation(idMicrocapsula: number) {
   let mysql
   try {
     mysql = await createMySqlClient()
@@ -67,13 +67,6 @@ export async function getDocumentationWithAll(idMicrocapsula: number) {
       dataLinks: rowsLinks,
     }
   } catch (error) {
-    console.log('\n\n\n\n\n\n\n\n')
-    console.log(
-      error instanceof Error
-        ? error.message
-        : 'Error desconocido al obtener todas las capsulas'
-    )
-    console.log('\n\n\n\n\n\n\n\n')
     return {
       ok: false,
       error:
