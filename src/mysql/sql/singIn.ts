@@ -48,14 +48,12 @@ export async function singIn({ correo, contrasenia }: credentialsProps) {
     }
     return {
       ok: true,
-      error: null,
       data
     }
   } catch (error) {
     console.log(error)
     return {
       ok: false,
-      data: null,
       error:
         error instanceof Error
           ? error.message

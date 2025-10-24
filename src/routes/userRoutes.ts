@@ -17,4 +17,8 @@ userRoutes.get('/estudiante/login/:correo/:contrasenia', async (c) => {
     return c.json(response)
 })
 
+userRoutes.get('/glosario')
+
+
+
 export default userRoutes;
