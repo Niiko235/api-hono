@@ -1,7 +1,6 @@
 import { RowDataPacket } from 'mysql2'
 import { createMySqlClient } from '../client/create-mysql-client.js'
 
-
 type RowDocumentation = {
   id: number
   title: string
@@ -61,10 +60,12 @@ export async function getDocumentation(idMicrocapsula: number) {
 
     return {
       ok: true,
-      dataDocumentation: rowsDocumentation[0],
-      dataTheory: rowsTheory,
-      dataVideos: rowsVideos,
-      dataLinks: rowsLinks,
+      data: {
+        dataDocumentation: rowsDocumentation[0],
+        dataTheory: rowsTheory,
+        dataVideos: rowsVideos,
+        dataLinks: rowsLinks,
+      },
     }
   } catch (error) {
     return {

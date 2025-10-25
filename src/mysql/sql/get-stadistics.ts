@@ -21,13 +21,8 @@ export async function getStadistics(idEstudiante: number){
         data.promedio = rows[0].promedio ?? 0
         data.partidas = rows[0].partidas
     }
-    console.log('Estadisticas : ', rows.length);
-    console.log(rows[0].promedio);
-    console.log(rows[0].partidas);
-
     
     return {
-        
       ok: true,
       data
     }

@@ -6,9 +6,16 @@ import { getDocumentation } from '../mysql/sql/get-documentation.js'
 import { logGame } from '../mysql/sql/log-game.js'
 import { registerStudent } from '../mysql/sql/register-student.js'
 import { getStadistics } from '../mysql/sql/get-stadistics.js'
+import { cors } from 'hono/cors'
 
 
 const userRoutes = new Hono()
+
+userRoutes.use('*', cors({
+  origin: ['https://movi-lab-ua.vercel.app', 'http://localhost:8080', 'http://localhost:3000'],
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization'],
+}))
 
 userRoutes.get('/', (c) => {
   return c.text('Hola nico, andas bien bellako')
