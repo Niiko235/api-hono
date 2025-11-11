@@ -12,7 +12,7 @@ import { cors } from 'hono/cors'
 const userRoutes = new Hono()
 
 userRoutes.use('*', cors({
-  origin: ['https://movi-lab-ua.vercel.app', 'http://localhost:8080', 'http://localhost:3000'],
+  origin: ['*'],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],
 }))
