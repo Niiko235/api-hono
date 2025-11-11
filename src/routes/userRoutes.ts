@@ -18,7 +18,7 @@ userRoutes.use('*', cors({
 }))
 
 userRoutes.get('/', (c) => {
-  return c.text('Hola nico, andas bien bellako')
+  return c.text('Hola nicolas, esta es tu primera api con hono :3, estoy muy orgulloso de ti y lo que lograste, no estes triste, sigue adelante, estoy muy orgulloso de ti :)')
 })
 
 userRoutes.get('/estudiante/login/:correo/:contrasenia', async (c) => {

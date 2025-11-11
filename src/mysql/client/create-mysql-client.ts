@@ -9,8 +9,12 @@ export async function createMySqlClient() {
   //   database: process.env.MYSQL_DATABASE,
   // })
 
+  // const connectionProduct = await mysql.createConnection(
+  //   String(process.env.DATABASE_URL)
+  // )
+  
   const connectionProduct = await mysql.createConnection(
-    String(process.env.DATABASE_URL)
+    String(process.env.DATABASE_URL_V2)
   )
 
   return connectionProduct
