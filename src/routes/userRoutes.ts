@@ -7,6 +7,7 @@ import { logGame } from '../mysql/sql/log-game.js'
 import { registerStudent } from '../mysql/sql/register-student.js'
 import { getStadistics } from '../mysql/sql/get-stadistics.js'
 import { cors } from 'hono/cors'
+import { updateProfile } from '../mysql/sql/update-profile.js'
 
 
 const userRoutes = new Hono()
@@ -26,6 +27,23 @@ userRoutes.get('/estudiante/login/:correo/:contrasenia', async (c) => {
   const contrasenia = c.req.param('contrasenia')
 
   const response = await singIn({ correo, contrasenia })
+
+  return c.json(response)
+})
+
+userRoutes.put('/estudiante/actualizarPerfil', async (c) => {
+  const body = await c.req.json()
+  const { id, nombres, apellidos, numero_telefonico, contrasenia } = body
+
+  const rawId = Number(id)
+
+  const response = await updateProfile({
+    id : rawId,
+    nombres,
+    apellidos,
+    numero_telefonico,
+    contrasenia,
+  })
 
   return c.json(response)
 })
